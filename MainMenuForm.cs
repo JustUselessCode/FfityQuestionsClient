@@ -1,15 +1,13 @@
-using Grpc.Core;
-using System.Text;
-using Grpc.Net.Client;
 using QuestionService;
 using FiftyQuestionsClient.Entities;
+using System.Text;
 
 namespace FiftyQuestionsClient;
 
-public partial class MainMenuForm : Form
+internal partial class MainMenuForm : Form
 {
-    private static readonly string Address = "http://loclahost:6969";
-
+    public static Player? CurrentPlayer { get; set; }
+    public static int CurrentRoomId { get; set; }
     public MainMenuForm()
     {
         InitializeComponent();
@@ -21,17 +19,48 @@ public partial class MainMenuForm : Form
 
     }
 
-    private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+    private void PlayerRoleSelection_SelectedIndexChanged(object sender, EventArgs e)
     {
         PlayerRoleSelection.Text = PlayerRoleSelection.SelectedItem.ToString();
     }
 
-    private void JoinGameButton_Click(object sender, EventArgs e)
+    private async void JoinGameButton_Click(object sender, EventArgs e)
     {
-        Player Player = new(NameInput.Text, (PlayerRole)PlayerRoleSelection.SelectedValue);
-        var Client = ClientFactory.CreateClient(Address);
+        Player currentPlayer = new(NameInput.Text, (PlayerRole) PlayerRoleSelection.SelectedValue);
+        CurrentPlayer = currentPlayer;
+        var Client = ClientFactory.CreateClient(new Uri("http://localhost:6969"));
 
+        var Response = await Client.AddParticipantAsync(new ParticipationRequest
+        {
+            PlayerID = Guid.NewGuid().ToString(),
+            PlayerName = currentPlayer.Name,
+            Role = currentPlayer._Role,
+            RoomID = int.Parse(RoomNumberInputLabel.Text)
+        });
 
+        if (!Response.SuccesStatus)
+        {
+            //TODO: Implement ErrorHandling perhaps using a ErrorHandling Winforms Element
+        }
+
+        switch (currentPlayer._Role)
+        {
+            case PlayerRole.Player:
+                var PlayerForm = new GameRoomPlayerView();
+                PlayerForm.ShowDialog();
+                break;
+
+            case PlayerRole.GameMaster:
+                var GameMasterForm = new GameRoomGameMasterView();
+                GameMasterForm.Show();
+                break;
+
+            case PlayerRole.Spectator:
+                throw new NotImplementedException("Spectator capability has not been implemented yet!");
+
+            default:
+                throw new NotSupportedException();
+        }
     }
 
     private async void RequestRoomCreationButton_Click(object sender, EventArgs e)
@@ -46,6 +75,7 @@ public partial class MainMenuForm : Form
             CreateRoomResponseLabel.SelectAll();
             CreateRoomResponseLabel.SelectionFont = new Font("Segoe UI", 20);
             CreateRoomResponseLabel.SelectionAlignment = HorizontalAlignment.Center;
+            CurrentRoomId = Response.RoomID;
         }
 
         else

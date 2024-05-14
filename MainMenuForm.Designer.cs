@@ -96,7 +96,7 @@
             PlayerRoleSelection.Name = "PlayerRoleSelection";
             PlayerRoleSelection.Size = new Size(100, 23);
             PlayerRoleSelection.TabIndex = 8;
-            PlayerRoleSelection.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            PlayerRoleSelection.SelectedIndexChanged += PlayerRoleSelection_SelectedIndexChanged;
             // 
             // JoinGameButton
             // 
@@ -135,7 +135,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(241, 87);
+            label3.Location = new Point(242, 69);
             label3.Name = "label3";
             label3.Size = new Size(53, 15);
             label3.TabIndex = 13;
@@ -143,7 +143,7 @@
             // 
             // CreateRoomResponseLabel
             // 
-            CreateRoomResponseLabel.Location = new Point(189, 105);
+            CreateRoomResponseLabel.Location = new Point(190, 87);
             CreateRoomResponseLabel.Name = "CreateRoomResponseLabel";
             CreateRoomResponseLabel.Size = new Size(164, 45);
             CreateRoomResponseLabel.TabIndex = 12;
@@ -152,7 +152,7 @@
             // RequestRoomCreationButton
             // 
             RequestRoomCreationButton.Cursor = Cursors.Hand;
-            RequestRoomCreationButton.Location = new Point(209, 170);
+            RequestRoomCreationButton.Location = new Point(210, 152);
             RequestRoomCreationButton.Name = "RequestRoomCreationButton";
             RequestRoomCreationButton.Size = new Size(123, 50);
             RequestRoomCreationButton.TabIndex = 11;
@@ -181,7 +181,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(588, 370);
+            ClientSize = new Size(589, 371);
             Controls.Add(tabControl1);
             Name = "MainMenuForm";
             Text = "Main Menu";

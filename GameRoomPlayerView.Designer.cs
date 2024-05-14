@@ -1,6 +1,6 @@
 ﻿namespace FiftyQuestionsClient
 {
-    partial class Form2
+    partial class GameRoomPlayerView
     {
         /// <summary>
         /// Required designer variable.
@@ -35,17 +35,16 @@
             // 
             // QuestionReply
             // 
-            QuestionReply.Location = new Point(198, 88);
+            QuestionReply.Location = new Point(103, 107);
             QuestionReply.Name = "QuestionReply";
-            QuestionReply.Size = new Size(404, 173);
+            QuestionReply.Size = new Size(381, 72);
             QuestionReply.TabIndex = 4;
             QuestionReply.Text = "";
-            QuestionReply.TextChanged += TestAnswer1_TextChanged;
             // 
             // Buzzer
             // 
             Buzzer.Cursor = Cursors.Hand;
-            Buzzer.Location = new Point(330, 301);
+            Buzzer.Location = new Point(227, 196);
             Buzzer.Name = "Buzzer";
             Buzzer.Size = new Size(136, 61);
             Buzzer.TabIndex = 3;
@@ -63,17 +62,17 @@
             QuestionLabel.Text = "Question: ";
             QuestionLabel.Click += label1_Click;
             // 
-            // Form2
+            // GameRoomPlayerView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(589, 371);
             Controls.Add(QuestionLabel);
             Controls.Add(QuestionReply);
             Controls.Add(Buzzer);
-            Name = "Form2";
-            Text = "Form2";
+            Name = "GameRoomPlayerView";
+            Text = "GameRoomPlayerView";
             Load += Form2_Load;
             KeyDown += Form2_KeyDown;
             ResumeLayout(false);

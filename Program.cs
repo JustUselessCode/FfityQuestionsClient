@@ -15,6 +15,7 @@ namespace FiftyQuestionsClient
             ApplicationConfiguration.Initialize();
            
             Application.Run(new MainMenuForm());
+            
         }
     }
 }
