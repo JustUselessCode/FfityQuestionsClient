@@ -31,6 +31,7 @@
             QuestionReply = new RichTextBox();
             Buzzer = new Button();
             QuestionLabel = new Label();
+            ClientNextQuestionButton = new Button();
             SuspendLayout();
             // 
             // QuestionReply
@@ -62,17 +63,30 @@
             QuestionLabel.Text = "Question: ";
             QuestionLabel.Click += label1_Click;
             // 
+            // ClientNextQuestionButton
+            // 
+            ClientNextQuestionButton.Cursor = Cursors.Hand;
+            ClientNextQuestionButton.Location = new Point(46, 50);
+            ClientNextQuestionButton.Name = "ClientNextQuestionButton";
+            ClientNextQuestionButton.Size = new Size(38, 26);
+            ClientNextQuestionButton.TabIndex = 6;
+            ClientNextQuestionButton.Text = ">>";
+            ClientNextQuestionButton.UseVisualStyleBackColor = true;
+            ClientNextQuestionButton.Click += ClientNextQuestionButton_Click;
+            // 
             // GameRoomPlayerView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(589, 371);
+            Controls.Add(ClientNextQuestionButton);
             Controls.Add(QuestionLabel);
             Controls.Add(QuestionReply);
             Controls.Add(Buzzer);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "GameRoomPlayerView";
-            Text = "GameRoomPlayerView";
+            Text = "6";
             Load += Form2_Load;
             KeyDown += Form2_KeyDown;
             ResumeLayout(false);
@@ -84,5 +98,6 @@
         private RichTextBox QuestionReply;
         private Button Buzzer;
         private Label QuestionLabel;
+        private Button ClientNextQuestionButton;
     }
 }

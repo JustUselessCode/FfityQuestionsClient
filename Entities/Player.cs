@@ -9,8 +9,6 @@ internal class Player
 
     public string Name { get; set; }
 
-    public bool Winner { get; set; }
-
     public PlayerRole _Role { get; set; }
 
     public Player(string name, PlayerRole role)
@@ -18,7 +16,6 @@ internal class Player
         Id = Guid.NewGuid();
         Name = name;
         _Role = role;
-        Winner = false;
     }
 
     public override string ToString()

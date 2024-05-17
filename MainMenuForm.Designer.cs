@@ -156,7 +156,7 @@
             RequestRoomCreationButton.Name = "RequestRoomCreationButton";
             RequestRoomCreationButton.Size = new Size(123, 50);
             RequestRoomCreationButton.TabIndex = 11;
-            RequestRoomCreationButton.Text = " Request Room";
+            RequestRoomCreationButton.Text = "Create Room";
             RequestRoomCreationButton.UseVisualStyleBackColor = true;
             RequestRoomCreationButton.Click += RequestRoomCreationButton_Click;
             // 
@@ -183,6 +183,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(589, 371);
             Controls.Add(tabControl1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MainMenuForm";
             Text = "Main Menu";
             Load += Form1_Load;

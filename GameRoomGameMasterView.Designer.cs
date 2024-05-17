@@ -28,12 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "GameRoomGameMasterView";
+            ClearBuzzerButton = new Button();
+            button1 = new Button();
+            SuspendLayout();
+            // 
+            // ClearBuzzerButton
+            // 
+            ClearBuzzerButton.Location = new Point(12, 282);
+            ClearBuzzerButton.Name = "ClearBuzzerButton";
+            ClearBuzzerButton.Size = new Size(94, 28);
+            ClearBuzzerButton.TabIndex = 0;
+            ClearBuzzerButton.Text = "Clear Buzzers";
+            ClearBuzzerButton.UseVisualStyleBackColor = true;
+            ClearBuzzerButton.Click += ClearBuzzerButton_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(12, 316);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 28);
+            button1.TabIndex = 1;
+            button1.Text = "Next Question";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // GameRoomGameMasterView
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(589, 371);
+            Controls.Add(button1);
+            Controls.Add(ClearBuzzerButton);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Name = "GameRoomGameMasterView";
+            Text = "GameRoomGameMasterView";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button ClearBuzzerButton;
+        private Button button1;
     }
 }

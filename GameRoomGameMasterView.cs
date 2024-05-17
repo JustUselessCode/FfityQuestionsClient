@@ -1,20 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using FiftyQuestionsClient.Entities;
 
-namespace FiftyQuestionsClient
+namespace FiftyQuestionsClient;
+
+public partial class GameRoomGameMasterView : Form
 {
-    public partial class GameRoomGameMasterView : Form
+    public GameRoomGameMasterView()
     {
-        public GameRoomGameMasterView()
+        InitializeComponent();
+    }
+
+    private async void ClearBuzzerButton_Click(object sender, EventArgs e)
+    {
+        var Client = ClientFactory.CreateClient(Endpoints.DevEndpointUnsecure);
+        bool Response = false;
+        int Retry = 3;
+
+        while (Response == false)
         {
-            InitializeComponent();
+            var res = await Client.ClearBuzzersAsync(new());
+            Response = res.Cleared;
+        }
+
+        if (Response == false)
+        {
+           //TODO: Handle Error during BuzzerClearing
+        }
+
+        else
+        {
+
         }
     }
 }
